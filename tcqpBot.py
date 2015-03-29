@@ -11,7 +11,7 @@
 # 2015 ~k
 
 import pytiny
-import sys, time, re, random, urllib, urllib2
+import time, re, random, urllib, urllib2
 from urllib import urlencode
 from urllib2 import urlopen, Request
 
