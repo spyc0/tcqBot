@@ -1,12 +1,11 @@
 #!/usr/bin/python2
-
 # EXAMPLE SCRIPT FOR TINYCHAT BOT
 # >https://github.com/alyak/pytiny
 
 # tcqBot.py DEFAULT PROTOTYPE
 # BRINGS IN 9 BOTS, EACH SPEAK WHEN ENTERING, 9TH BOT WILL CONTINUE SPEAKING.
 
-# NOTE: Line 125 of tinychat.py (#)commented out, or doesnt't work.
+# NOTE: Line 125 & 140 of tinychat.py (#)commented out, or may crash.
 # 2015 ~k
 
 # YOU MAY NEED TO DO THE FOLLOWING FIRST [Debian]:
