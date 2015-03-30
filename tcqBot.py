@@ -3,7 +3,7 @@
 # EXAMPLE SCRIPT FOR TINYCHAT BOT
 # >https://github.com/alyak/pytiny
 
-# tc_bot0000.py DEFAULT PROTOTYPE
+# tcqBot.py DEFAULT PROTOTYPE
 # BRINGS IN 9 BOTS, EACH SPEAK WHEN ENTERING, 9TH BOT WILL CONTINUE SPEAKING.
 
 # NOTE: Line 125 of tinychat.py (#)commented out, or doesnt't work.
