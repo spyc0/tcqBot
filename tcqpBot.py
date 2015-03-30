@@ -10,6 +10,14 @@
 # NOTE: Line 125 & 140 of tinychat.py (#)commented out, or might crash.
 # 2015 ~k
 
+# YOU MAY NEED TO DO THE FOLLOWING FIRST [Debian]:
+# torsocks wget https://bootstrap.pypa.io/get-pip.py
+# 	>http://pip.readthedocs.org/en/latest/installing.html
+# pip install cffi
+# 	>If you're missing ffi.h >apt-get install libffi-dev
+# pip install python-librtmp
+# 	>http://pythonhosted.org/python-librtmp
+
 import pytiny
 import time, re, random, urllib, urllib2
 from urllib import urlencode
@@ -45,12 +53,12 @@ while True:
 	stfu = random.randint(45, 80)
 	getqchoice = random.randint(0, 1)
 	if getqchoice == 0:
-		getquote = 'http://api.tinychat.com/scenefag.xml' # Would like it to choose random <pic> and not first that it finds.
+		getquote = 'http://api.tinychat.com/scenefag.xml'
 		rquote = re.compile(r'<pic>.*?</pic>')
 		qdata = opener.open(getquote).read()
 		qpick = rquote.findall(qdata)
 		pic = re.sub(r'<[^>]*?>', '', unicode(qpick[0]))
-		ohai = '*Say cheese!* ' + pic # Why is it not saying "Say cheese!" first before posting pic url? fffffffffffff
+		ohai = '*Say cheese!* ' + pic
 		if ohai == '':
 			getquote = 'http://randomquotesgenerator.com/index.php/rest.html'
 			rquote = re.compile(r'<i>.*?</i>')
