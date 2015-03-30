@@ -6,7 +6,7 @@
 # BRINGS IN 9 BOTS, EACH SPEAK WHEN ENTERING, 9TH BOT WILL CONTINUE SPEAKING.
 
 # NOTE: Line 125 & 140 of tinychat.py (#)commented out, or may crash.
-# 2015 ~k
+# March 2015 ~k
 
 # YOU MAY NEED TO DO THE FOLLOWING FIRST [Debian]:
 # torsocks wget https://bootstrap.pypa.io/get-pip.py
