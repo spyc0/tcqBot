@@ -67,5 +67,5 @@ while not SEED_ <= 0:
 				ohai = re.sub(r'<[^>]*?>', '', unicode(qpick[0]))
 			else:
 				ohai = '*WHITEPOWER!*'
-			tc.msg(ohai)
+			tc.msg(ohai, '#0')
 			time.sleep(stfu)
