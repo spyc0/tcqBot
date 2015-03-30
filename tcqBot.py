@@ -46,7 +46,7 @@ while not SEED_ <= 0:
 	tc.set_room("scenefag")
 	tc.connect()
 	buf = tc.recv()
-	print data
+	print buf
 	stfu = random.randint(10, 60)
 	tc.msg("*WHITEPOWER!*", "#0")
 	time.sleep(stfu)
