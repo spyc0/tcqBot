@@ -1,5 +1,5 @@
 # tcqpBot.py
-Random quote and pic Bot for pytiny
+Random quote Bot for pytiny
 
 ID LIKE TO DO ALOT MORE WITH THIS BOT OFC, JUST KINDA EXPERIMENTING RIGHT NOW.
 ID LIKE TO EVENTUALLY HAVE COMMAND FUNCTIONS AS WELL.
