@@ -45,8 +45,7 @@ while not SEED_ <= 0:
 	tc.nick(rnick)
 	tc.set_room("scenefag")
 	tc.connect()
-	data = tc.recv()
-	data_string = str(data).lower()
+	buf = tc.recv()
 	print data
 	stfu = random.randint(10, 60)
 	tc.msg("*WHITEPOWER!*", "#0")
