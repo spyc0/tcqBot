@@ -5,7 +5,6 @@
 
 # tc_bot0000.py DEFAULT PROTOTYPE
 # BRINGS IN 9 BOTS, EACH SPEAK WHEN ENTERING, 9TH BOT WILL CONTINUE SPEAKING.
-
 # NOTE: Line 125 of tinychat.py (#)commented out, or doesnt't work.
 # 2015 ~k
 
