@@ -1,12 +1,13 @@
 #!/usr/bin/python2
+
 # EXAMPLE SCRIPT FOR TINYCHAT BOT
 # >https://github.com/alyak/pytiny
 
-# tcqBot.py DEFAULT PROTOTYPE
+# tc_bot0000.py DEFAULT PROTOTYPE
 # BRINGS IN 9 BOTS, EACH SPEAK WHEN ENTERING, 9TH BOT WILL CONTINUE SPEAKING.
 
-# NOTE: Line 125 & 140 of tinychat.py (#)commented out, or may crash.
-# March 2015 ~k
+# NOTE: Line 125 of tinychat.py (#)commented out, or doesnt't work.
+# 2015 ~k
 
 # YOU MAY NEED TO DO THE FOLLOWING FIRST [Debian]:
 # torsocks wget https://bootstrap.pypa.io/get-pip.py
@@ -24,26 +25,40 @@ from urllib2 import urlopen, Request
 proxy_support = urllib2.ProxyHandler({'https' : '127.0.0.1:8118'})
 opener = urllib2.build_opener(proxy_support) # apt-get install privoxy
 
-SEED_ = 9
+bots = 9 # TinyChat only allows 10 connections per IP (1 is reserved for botmaster)
     
-while not SEED_ <= 0:
-	VOWELS = 'aeiou'
-	CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
-	def generate_nick(length):
-		word = ''
-		for i in range(length):
-			if i % 2 == 0:
-				word += random.choice(CONSONANTS)
-			else:
-				word += random.choice(VOWELS)
-		return word
-	if __name__ == '__main__':
-		count = random.randint(3, 5)
-		length = count + 1
-		for i in range(count):
-			rnick = (generate_nick(length))
+while not bots <= 0:
+	verb = random.randint(0, 7)
+	# Choice 1: Generate a random name using VOWELS && CONSONANTS + randint
+	if verb == 6:
+		VOWELS = "aeiou"
+		CONSONANTS = "bcdfghjklmnpqrstvwxyz"
+		def generate_nick(length):
+			word = ""
+			for i in range(length):
+				if i % 2 == 0:
+					word += random.choice(CONSONANTS)
+				else:
+					word += random.choice(VOWELS)
+			return word
+		if __name__ == "__main__":
+			count = random.randint(4, 7)
+			length = count - 1
+			for i in range(count):
+				rnick = (generate_nick(length)) + str(random.randint(1, 9 * count))
+	# Choice 2: Pull the first random name generated via rinkworks.com
+	elif verb <= 3:
+		getname = 'http://rinkworks.com/namegen/fnames.cgi?d=1&f=11'
+		rname = re.compile(r'<td>.*?</td>')
+		ndata = opener.open(getname).read()
+		npick = rname.findall(ndata)
+		rnick = re.sub(r'<[^>]*?>', '', unicode(npick[0]))
+	# Choice 3: Generate a name via random line read @ localhost rnick.txt
+	else:
+		rnick = random.choice(open("./rnick.txt").readlines())
+
 	tc = pytiny.TinyChat()
-	tc.nick(rnick)
+	tc.nick(rnick.lower())
 	tc.set_room('scenefag')
 	tc.connect()
 	buf = tc.recv()
@@ -51,8 +66,8 @@ while not SEED_ <= 0:
 	stfu = random.randint(10, 60)
 	tc.msg('*WHITEPOWER!*', '#0')
 	time.sleep(stfu)
-	SEED_ = SEED_ - 1
-	if SEED_ <= 0:
+	bots = bots - 1
+	if bots <= 0:
 		while True:
 			buf = tc.recv()
 			print buf
@@ -66,5 +81,5 @@ while not SEED_ <= 0:
 				ohai = re.sub(r'<[^>]*?>', '', unicode(qpick[0]))
 			else:
 				ohai = '*WHITEPOWER!*'
-			tc.msg(ohai, '#0')
-			time.sleep(stfu)
+				tc.msg(ohai, '#0')
+				time.sleep(stfu)
