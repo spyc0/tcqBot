@@ -1,12 +1,12 @@
 #!/usr/bin/python2
 
-# EXAMPLE SCRIPT FOR TINYCHAT BOT
+# LE {t}iny{c}hat{q}uote_Bot FOR NORWACK'S pytiny MODULE
 # >https://github.com/alyak/pytiny
+import pytiny
 
-# tc_bot0000.py DEFAULT PROTOTYPE
 # BRINGS IN 9 BOTS, EACH SPEAK WHEN ENTERING, 9TH BOT WILL CONTINUE SPEAKING.
-# NOTE: Line 125 && 140 of tinychat.py (#)commented out, or may crash.
-# 2015 ~k
+# NOTE: Line 125 & 140 of tinychat.py [#]commented out, or may crash.
+# 2015 ~k | WEBSITE:[http://alyak.github.io/tcqBot]
 
 # YOU MAY NEED TO DO THE FOLLOWING FIRST [Debian]:
 # torsocks wget https://bootstrap.pypa.io/get-pip.py
@@ -16,8 +16,7 @@
 # pip install python-librtmp
 # 	>http://pythonhosted.org/python-librtmp
 
-import pytiny
-import time, socket, re, random, urllib, urllib2
+import socket, re, random, time, urllib, urllib2
 from urllib import urlencode
 from urllib2 import urlopen, Request
 
@@ -27,9 +26,9 @@ opener = urllib2.build_opener(proxy_support) # apt-get install privoxy
 bots = 9 # TinyChat only allows 10 connections per IP (1 is reserved for botmaster)
     
 while not bots <= 0:
-	verb = random.randint(0, 7)
+	nickGen = random.randint(0, 7)
 	# Choice 1: Generate a random name using VOWELS && CONSONANTS + randint
-	if verb == 6:
+	if nickGen == 6:
 		VOWELS = "aeiou"
 		CONSONANTS = "bcdfghjklmnpqrstvwxyz"
 		def generate_nick(length):
@@ -46,7 +45,7 @@ while not bots <= 0:
 			for i in range(count):
 				rnick = (generate_nick(length)) + str(random.randint(1, 9 * count))
 	# Choice 2: Pull the first random name generated via rinkworks.com
-	elif verb <= 3:
+	elif nickGen <= 3:
 		getname = 'http://rinkworks.com/namegen/fnames.cgi?d=1&f=11'
 		rname = re.compile(r'<td>.*?</td>')
 		ndata = opener.open(getname).read()
@@ -58,19 +57,19 @@ while not bots <= 0:
 
 	tc = pytiny.TinyChat()
 	tc.nick(rnick.lower())
-	tc.set_room('scenefag')
+	tc.set_room('scenefag') # Your TinyChat room name
 	tc.connect()
 	buf = tc.recv()
 	print buf
-	stfu = random.randint(10, 60)
-	tc.msg('*WHITEPOWER!*', '#0')
-	time.sleep(stfu)
+	wait = random.randint(10, 60)
+	tc.msg('*WHITEPOWER!*', '#0') # Greeting message
+	time.sleep(wait)
 	bots = bots - 1
 	if bots <= 0:
 		while True:
 			buf = tc.recv()
 			print buf
-			stfu = random.randint(180, 600) # Every 3-10 mins.
+			stfu = random.randint(180, 600) # Speak every 3-10 minutes
 			wp = random.randint(0, 6)
 			if wp <= 3:
 				getquote = 'http://randomquotesgenerator.com/index.php/rest.html'
