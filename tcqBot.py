@@ -79,7 +79,7 @@ while not bots <= 0:
 				ohai = re.sub(r'<[^>]*?>', '', unicode(qpick[0]))
 				tc.msg(ohai)
 				time.sleep(stfu)
-			else:
+			elif wp >=5:
 				ohai = '*WHITEPOWER!*'
 				tc.msg(ohai, '#0')
 				time.sleep(stfu)
