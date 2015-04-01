@@ -28,7 +28,7 @@ bots = 9 # TinyChat only allows 10 connections per IP (1 is reserved for botmast
 while not bots <= 0:
 	nickGen = random.randint(0, 9)
 	# Choice 1: Generate a random name using VOWELS && CONSONANTS + randint
-	if nickGen => 6:
+	if nickGen >= 6:
 		VOWELS = "aeiou"
 		CONSONANTS = "bcdfghjklmnpqrstvwxyz"
 		def generate_nick(length):
