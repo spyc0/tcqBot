@@ -69,7 +69,7 @@ while not bots <= 0:
 		while True:
 			buf = tc.recv()
 			print buf
-			stfu = random.randint(180, 600) # Speak every 3-10 minutes
+			stfu = random.randint(300, 900) # Speak every 5-15 minutes
 			wp = random.randint(0, 8)
 			if wp <= 4:
 				getquote = 'http://randomquotesgenerator.com/index.php/rest.html'
