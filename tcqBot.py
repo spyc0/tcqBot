@@ -70,13 +70,15 @@ while not bots <= 0:
 			buf = tc.recv()
 			print buf
 			stfu = random.randint(180, 600) # Speak every 3-10 minutes
-			wp = random.randint(0, 6)
-			if wp <= 3:
+			wp = random.randint(0, 8)
+			if wp <= 4:
 				getquote = 'http://randomquotesgenerator.com/index.php/rest.html'
 				rquote = re.compile(r'<i>.*?</i>')
 				qdata = opener.open(getquote).read()
 				qpick = rquote.findall(qdata)
 				ohai = re.sub(r'<[^>]*?>', '', unicode(qpick[0]))
+				tc.msg(ohai)
+				time.sleep(stfu)
 			else:
 				ohai = '*WHITEPOWER!*'
 				tc.msg(ohai, '#0')
