@@ -431,7 +431,7 @@ body {
   font-size: 15px;
   font-family: Arial, Arial, Helvetica, sans-serif;
   line-height: 1.5;
-  background: #D1D1D1;
+  background: #000000;
 }
 
 a {
@@ -443,7 +443,7 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: #90D355;
+  color: #fb8b00;
 }
 
 h1.title {
