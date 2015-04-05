@@ -16,7 +16,7 @@ import pytiny
 # pip install python-librtmp
 # 	>http://pythonhosted.org/python-librtmp
 
-import socket, re, random, time, urllib, urllib2
+import re, random, time, urllib, urllib2
 from urllib import urlencode
 from urllib2 import urlopen, Request
 
