@@ -23,7 +23,7 @@ from urllib2 import urlopen, Request
 proxy_support = urllib2.ProxyHandler({'https' : '127.0.0.1:8118'})
 opener = urllib2.build_opener(proxy_support) # apt-get install privoxy
 
-bots = 8 # TinyChat only allows 10 connections per IP (1 is reserved for botmaster)
+bots = 9 # TinyChat only allows 10 connections per IP (1 is reserved for botmaster)
     
 while not bots <= 0:
 	nickGen = random.randint(0, 9)
