@@ -23,7 +23,7 @@ from urllib2 import urlopen, Request
 proxy_support = urllib2.ProxyHandler({'https' : '127.0.0.1:8118'})
 opener = urllib2.build_opener(proxy_support) # apt-get install privoxy
 
-bots = 9 # TinyChat only allows 10 connections per IP (1 is reserved for botmaster)
+bots = 8 # TinyChat only allows 10 connections per IP (1 is reserved for botmaster)
     
 while not bots <= 0:
 	nickGen = random.randint(0, 9)
@@ -69,17 +69,17 @@ while not bots <= 0:
 		while True:
 			buf = tc.recv()
 			print buf
-			stfu = random.randint(300, 900) # Speak every 5-15 minutes
+			stfu = random.randint(900, 1800) # Speak every 15-30 minutes
 			wp = random.randint(0, 8)
-			if wp <= 4:
-				getquote = 'http://randomquotesgenerator.com/index.php/rest.html'
+			if wp <= 7:
+				getquote = 'http://randomquotesgenerator.com/index.php/rest.html?method=advice/'
 				rquote = re.compile(r'<i>.*?</i>')
 				qdata = opener.open(getquote).read()
 				qpick = rquote.findall(qdata)
 				ohai = re.sub(r'<[^>]*?>', '', unicode(qpick[0]))
 				tc.msg(ohai)
 				time.sleep(stfu)
-			elif wp >=5:
+			elif wp == 8:
 				ohai = '*WHITEPOWER!*'
 				tc.msg(ohai, '#0')
 				time.sleep(stfu)
