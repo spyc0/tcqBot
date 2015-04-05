@@ -46,7 +46,7 @@ while not bots <= 0:
 				rnick = (generate_nick(length)) + str(random.randint(1, 9 * count))
 	# Choice 2: Pull the first random name generated via rinkworks.com
 	elif nickGen <= 3:
-		getname = 'http://rinkworks.com/namegen/fnames.cgi?d=1&f=11'
+		getname = 'http://rinkworks.com/namegen/fnames.cgi?d=1&f=1'
 		rname = re.compile(r'<td>.*?</td>')
 		ndata = opener.open(getname).read()
 		npick = rname.findall(ndata)
